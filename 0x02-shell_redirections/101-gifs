@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name "*.js" -exec basename {} .js \; | LC_ALL=C sort -f
+find . -name "*.js" -printf "%f\n" | LC_ALL=C sort -f
