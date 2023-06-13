@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -o '^.' | tr -d '\n'
+tr -c1 | tr -d '\n' ; echo
