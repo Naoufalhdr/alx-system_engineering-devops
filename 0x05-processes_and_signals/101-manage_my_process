@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Script: manage_my_process.sh
+# Description: A script for managing a background process.
+# It allows starting, stopping, and restarting the process.
+
+PID_FILE="/var/run/my_process.pid"
+
+# Start the process
+if [ "$1" == "start" ]
+then
+    ./manage_my_process &
+    echo "$!" > "$PID_FILE"
+    echo "manage_my_process started"
+
+# Stop the process if it's runnnig
+elif [ "$1" == "stop" ]
+then
+    kill "$(cat "$PID_FILE")"
+    rm -rf "$PID_FILE"
+    echo "manage_my_process stopped"
+
+# Restart the process
+elif [ "$1" == "restart" ]
+then
+    kill "$(cat "$PID_FILE")"
+    rm -rf "$PID_FILE"
+    ./manage_my_process &
+    echo "$!" > "$PID_FILE"
+    echo "manage_my_process started"
+
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
+
