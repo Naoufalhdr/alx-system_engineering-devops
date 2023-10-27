@@ -17,7 +17,8 @@ echo "$$" > /var/run/myscript.pid
 while true
 do
     echo "To infinity and beyond"
-    trap 'echo "I hate the kill command"; cleanup' SIGTERM SIGQUIT
+    trap 'echo "I hate the kill command"; cleanup' SIGTERM
     trap 'echo "Y U no love me?!"' SIGINT
-    sleep 1
+    trap 'cleanup' SIGQUIT
+    sleep 2
 done
