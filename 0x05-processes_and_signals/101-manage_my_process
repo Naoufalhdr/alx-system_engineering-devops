@@ -26,7 +26,7 @@ then
     rm -rf "$PID_FILE"
     ./manage_my_process &
     echo "$!" > "$PID_FILE"
-    echo "manage_my_process started"
+    echo "manage_my_process restarted"
 
 else
     echo "Usage: manage_my_process {start|stop|restart}"
