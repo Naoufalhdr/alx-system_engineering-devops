@@ -1,0 +1,6 @@
+# SSH Clien Configuration
+
+Host ubuntu
+	IdentifyFile ~/.ssh/school
+	PreferredAuthentication publickey
+	PasswordAuthentication no
