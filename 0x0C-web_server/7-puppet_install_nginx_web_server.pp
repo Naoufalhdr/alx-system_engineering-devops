@@ -1,4 +1,5 @@
 # Install Nginx and configuring my server with puppet
+include stdlib
 
 # Install Nginx package
 package { 'nginx':
@@ -19,14 +20,16 @@ file_line { 'ensure_line_exist':
 }
 
 file_line { '301_redirection_insert':
-  ensure  => present,
-  line => '\n\tlocation /redirect_me {\n\t\treturn 301 youtube.com;\n\t}',
-  path    => '/etc/nginx/sites-available/default',
-  after   => 'server_name _;
+  ensure => present,
+  line   => '\n\tlocation /redirect_me {\n\t\treturn 301 youtube.com;\n\t}',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'server_name _;',
 }
 
 # Ensure Nginx service is running and enabled
 service { 'nginx':
   ensure  => running,
+  enable  => true,
   require => Package['nginx'],
 }
+
