@@ -20,8 +20,8 @@ file_line { 'ensure_line_exist':
 
 file_line { '301_redirection_insert':
   ensure  => present,
+  line => '\n\tlocation /redirect_me {\n\t\treturn 301 youtube.com;\n\t}',
   path    => '/etc/nginx/sites-available/default',
-  content => '\n\tlocation /redirect_me {\n\t\treturn 301 youtube.com;\n\t}',
   after   => 'server_name _;
 }
 
