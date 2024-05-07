@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Configure the Nginx server so that /redirect_me is redirecting to another page
+# Customazing a 404-error page
 
 apt-get update
 apt-get -y intall nginx
