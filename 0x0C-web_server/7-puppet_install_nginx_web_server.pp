@@ -28,6 +28,5 @@ file_line { '301_redirection_insert':
 # Ensure Nginx service is running and enabled
 service { 'nginx':
   ensure  => running,
-  enable  => true,
   require => Package['nginx'],
 }
