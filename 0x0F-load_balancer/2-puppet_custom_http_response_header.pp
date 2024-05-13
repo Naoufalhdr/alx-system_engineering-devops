@@ -1,4 +1,11 @@
 # Install Nginx and configuring my server with puppet
+
+exec { 'update repo':
+  command  => 'apt-get upadate',
+  user     => 'root',
+  provider => 'shell',
+}
+
 package { 'install nginx':
   ensure => installed,
 }
