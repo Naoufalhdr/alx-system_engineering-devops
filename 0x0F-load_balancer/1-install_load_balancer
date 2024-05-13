@@ -5,7 +5,7 @@
 apt-get update
 
 # Install HAproxy
-apt-get -y install haproxy
+apt-get -y install haproxy=1.6.\*
 
 # Configure HAproxy
 FRONTEND="\nfrontend http_front\n\tbind *:80\n\tdefault_backend http_back"
