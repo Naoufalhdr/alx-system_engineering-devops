@@ -5,9 +5,9 @@ package { 'install nginx':
 
 file_line { 'config nginx':
   ensure => 'present',
-  path   => '/etc/nginx/sites-enabled/default',
+  path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
-  line   => 'add_header X-Server-By $HOSTNAME;',
+  line   => 'add_header X-Server-By $hostname;',
 }
 
 file { '/var/www/html/index.html':
@@ -16,6 +16,7 @@ file { '/var/www/html/index.html':
 
 service { 'nginx':
   ensure  => running,
+  enable  => true, 
   require => Package['nginx'],
 }
 
