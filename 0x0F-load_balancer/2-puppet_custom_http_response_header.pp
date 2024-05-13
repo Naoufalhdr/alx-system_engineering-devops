@@ -7,7 +7,8 @@ exec { 'update repo':
 }
 
 package { 'install nginx':
-  ensure => installed,
+  ensure   => present,
+  provider => 'apt',
 }
 
 file_line { 'config nginx':
