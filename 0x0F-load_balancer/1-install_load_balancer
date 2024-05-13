@@ -2,18 +2,23 @@
 # Installs and setup haproxy
 
 
-# Install HAproxy
-apt-get install -y software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-1.8
+# Update repo
 apt-get -y update
-apt-get install -y haproxy=1.8.\*
+
+# Install HAproxy
+apt-get install -y haproxy
 
 # Configure HAproxy
-FRONTEND="\nfrontend http_front\n\tbind *:80\n\tdefault_backend http_back"
-BACKEND="\nbackend http_back\n\tbalance roundrobin\n\tserver 440517-web-01 100.26.172.45:80 check\n\tserver 440517-web-02 54.236.12.243:80 check"
-FILE_PATH="/etc/haproxy/haproxy.cfg"
-echo -e "$FRONTEND" | sudo tee -a $FILE_PATH
-echo -e "$BACKEND" | sudo tee -a $FILE_PATH
+echo '
+frontend http_front
+        bind 0:80
+        default_backend http_back
+
+backend http_back
+        balance roundrobin
+        server 440517-web-01 100.26.172.45:80 check
+        server 440517-web-02 54.236.12.243:80 check
+' >> /etc/haproxy/haproxy.cfg
 
 # Reload HAproxy service
 systemctl reload haproxy
