@@ -21,4 +21,4 @@ backend http_back
 ' >> /etc/haproxy/haproxy.cfg
 
 # Reload HAproxy service
-systemctl reload haproxy
+service haproxy restart
