@@ -68,10 +68,12 @@ The pull request to the [what-happens-when](https://github.com/alex/what-happens
 ### Clone the repository:
 ```sh
 git clone https://github.com/your_username/alx-system_engineering-devops.git
+```
 
 ### Navigate to the project directory:
 ```sh
 cd alx-system_engineering-devops/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter
+```
 
 ### Open and read the README.md file for detailed information about the project.
 
