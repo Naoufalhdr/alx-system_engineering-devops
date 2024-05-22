@@ -61,6 +61,7 @@ The pull request to the [what-happens-when](https://github.com/alex/what-happens
 ├── 1-what_happen_when_diagram
 ├── 2-contribution-to_what-happens-when_github_answer
 ├── README.md
+```
 
 ## Usage
 
