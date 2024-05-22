@@ -75,7 +75,7 @@ git clone https://github.com/your_username/alx-system_engineering-devops.git
 cd alx-system_engineering-devops/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter
 ```
 
-### Open and read the README.md file for detailed information about the project.
+Open and read the README.md file for detailed information about the project.
 
 ## License
 
