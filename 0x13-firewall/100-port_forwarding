@@ -7,7 +7,6 @@
 #   ufw-before-output
 #   ufw-before-forward
 #
-# START OPENVPN RULES
 # NAT table rules
 *nat
 :PREROUTING ACCEPT [0:0]
