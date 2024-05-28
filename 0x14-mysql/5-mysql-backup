@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash/env bash
+# Create a backup of all MySQL databases, compress the backup, and store it with a date-based filename for easy identification and retrieval
 
 # MySQL root password
 MYSQL_ROOT_PASSWORD=$1
