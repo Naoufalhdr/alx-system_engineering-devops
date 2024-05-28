@@ -60,7 +60,8 @@ cd 0x14-mysql
 ```
 Replace <script-name> with the name of the script you want to execute.
 
-Author
+## Author
+
 Naoufal Hadra
 
 Feel free to customize this README file further according to your project's specific requirements and conventions. If you have any questions or need further assistance, please let me know!
