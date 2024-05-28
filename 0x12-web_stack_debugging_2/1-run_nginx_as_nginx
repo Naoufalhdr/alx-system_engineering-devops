@@ -13,4 +13,6 @@ sudo sed -i 's/listen \[::\]:80 default_server;/listen [::]:8080 default_server;
 sudo chmod 644 /etc/nginx/nginx.conf
 
 # Start nginx as the nginx user
-sudo -u nginx nginx
+sudo -u nginx service nginx start
+
+
