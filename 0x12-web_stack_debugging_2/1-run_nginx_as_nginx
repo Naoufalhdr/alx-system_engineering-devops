@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script to run Nginx as the nginx user and listen on port 8080
+
+# Ensure nginx is not running
+sudo pkill nginx
+
+# Update the nginx.conf file to use the nginx user and listen on port 8080
+sudo sed -i 's/user .*/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/listen 80;/listen 8080;/' /etc/nginx/sites-available/default
+sudo sed -i 's/listen \[::\]:80 default_server;/listen [::]:8080 default_server;/' /etc/nginx/sites-available/default
+
+# change permission
+sudo chmod 644 /etc/nginx/nginx.conf
+
+# Start nginx as the nginx user
+sudo -u nginx nginx
