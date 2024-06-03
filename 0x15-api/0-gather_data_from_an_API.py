@@ -4,8 +4,8 @@ Fetches and displays TODO list progress for a given employee ID using
 a REST API.
 """
 
-import sys
 import requests
+import sys
 
 
 def fetch_todo_list_progress(employee_id):
