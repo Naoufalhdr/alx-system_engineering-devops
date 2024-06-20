@@ -25,7 +25,7 @@ This project focuses on implementing webstack monitoring using Datadog. Monitori
 - Application Monitoring: Gathering data about your running software.
 - Server Monitoring: Gathering data about your server's performance metrics.
 
-## Learning Objectives
+## Learning Objectives {#learning-objectives}
 
 By the end of this project, you should be able to explain:
 
@@ -34,7 +34,7 @@ By the end of this project, you should be able to explain:
 - What access logs for a web server (such as Nginx) are.
 - What error logs for a web server (such as Nginx) are.
 
-## Requirements
+## Requirements {#requirements}
 
 - Allowed editors: `vi`, `vim`, `emacs`
 - All files will be interpreted on Ubuntu 16.04 LTS
@@ -45,7 +45,7 @@ By the end of this project, you should be able to explain:
 - The first line of all Bash scripts should be `#!/usr/bin/env bash`
 - The second line of all Bash scripts should be a comment explaining what the script does
 
-## Tasks
+## Tasks {#tasks}
 
 ### Task 0: Sign up for Datadog and install datadog-agent
 
@@ -67,7 +67,7 @@ By the end of this project, you should be able to explain:
 2. Add at least 4 widgets to the dashboard. The widgets can monitor any metrics you prefer.
 3. Create an answer file `2-setup_datadog` with the `dashboard_id` on the first line. To get the dashboard ID, you may need to use Datadog’s API.
 
-## Usage
+## Usage {#usage}
 
 To complete the tasks, follow these steps:
 
@@ -83,6 +83,6 @@ To complete the tasks, follow these steps:
     - Use the Datadog UI to create a new dashboard and add widgets.
     - Use the Datadog API to retrieve the `dashboard_id` and save it in the `2-setup_datadog` file.
 
-## License
+## License {#license}
 
 This project is licensed under the MIT License.
