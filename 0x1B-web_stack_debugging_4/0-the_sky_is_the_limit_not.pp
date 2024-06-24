@@ -3,5 +3,5 @@
 
 exec { 'fix--for-nginx':
   command => 'sed -i "s/worker_connections 1024/worker_connections 4096/" /etc/nginx/nginx.conf && service nginx restart',
-  path    => '/usr/bin:/usr/sbin:/bin:/sbin'
+  path    => '/usr/bin:/usr/sbin:/bin:/sbin',
 }
