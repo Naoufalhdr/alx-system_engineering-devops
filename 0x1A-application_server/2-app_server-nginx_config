@@ -1,0 +1,28 @@
+# configure Nginx to serve from the route /airbnb-onepage/
+
+server {
+    # Listen on port 80
+    listen 80;
+    listen [::]:80 default_server;
+
+    server_name 18.210.33.142;
+
+    # Add a custom header to responses indicating the server that handled the request
+    add_header X-Served-By "$HOSTNAME";
+
+    # Custom error page for 404 Not Found errors
+    error_page 404 /404.html;
+    location = /404.html {
+        root /var/www/html;
+        internal;
+    }
+
+    # Location block to handle requests to /airbnb-onepage/
+    location /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
