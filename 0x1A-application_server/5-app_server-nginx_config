@@ -1,49 +1,45 @@
-# configure Nginx to serve:
-# 	the route /airbnb-onepage/
-# 	the route /number_odd_or_even/
-# on AirBnB_clone_v2
-# and serve API on AirBnB_clone_v3
+# Configures Nginx to serve the complete AirBnB_clone_v4 application.
 
 server {
-    # Listen on port 80
-    listen 80;
-    listen [::]:80 default_server;
+    # Listen on port 80.
+    listen      80 default_server;
+    listen      [::]:80 default_server ipv6only=on;
 
-    # Server ip address
-    server_name 18.210.33.142;
+    # Use server IP as domain name
+    server_name 104.196.168.90;
 
-    # Custom header to responses indicating the server that handled the request
-    add_header X-Served-By "$HOSTNAME";
+    # Customize HTTP response header
+    add_header  X-Served-By 375-web-01;
 
-    # Custom error page for 404 Not Found errors
-    error_page 404 /404.html;
-    location = /404.html {
-        root /var/www/html;
-        internal;
-    }
-
-    # Proxy configuration for /airbnb-onepage/
-    location /airbnb-onepage/ {
+    # Serve /airbnb-onepage/ route on AirBnB_clone_v2
+    location = /airbnb-onepage/ {
         proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
     }
 
-    # Proxy configuration for /airbnb-dynamic/number_odd_or_even/
-    location ~* ^/airbnb-dynamic/number_odd_or_even/(\d+)$ {
+    # Serve /number_odd_or_even/ route on AirBnB_clone_v2
+    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
         proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
     }
 
-    # Proxy configuration for /api
-    location /api/ {
+    # Serve AirBnB_clone_v3 API
+    location /api {
         proxy_pass http://127.0.0.1:5002/api;
     }
 
-    # Proxy configuration for the root route to serve the dynamic web application
+    # Configure /2-hbnb route of AirBnB_clone_v4 as root location
     location / {
         proxy_pass http://127.0.0.1:5003/2-hbnb;
     }
 
-    # Serve static assets
-    location /static/ {
+    # Serve static content for AirBnB_clone_v4
+    location /static {
         proxy_pass http://127.0.0.1:5003;
+    }
+
+    # 404 error page
+    error_page 404 /404.html;
+    location /404 {
+        root /var/www/html;
+        internal;
     }
 }
